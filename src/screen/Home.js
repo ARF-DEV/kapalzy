@@ -172,7 +172,7 @@ const style = new StyleSheet.create({
     fontWeight : 'bold',
     textAlign : 'center',
     paddingVertical : 25,
-    color : 'blue'
+    color : '#00579C'
   },
   inputContainer: {
     margin : 10,
