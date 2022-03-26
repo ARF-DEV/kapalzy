@@ -52,7 +52,7 @@ function Transaction() {
 const style = new StyleSheet.create({
   titleStyle: {
     fontSize: 40,
-    color : 'blue',
+    color : '#00579C',
     fontWeight : 'bold',
     textAlign : 'center'
   },
