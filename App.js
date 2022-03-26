@@ -9,6 +9,7 @@ import Home from './src/screen/Home';
 import Transaction from './src/screen/Transaction';
 import DaftarPesanan from './src/screen/DaftarPesanan';
 import DetailPemesanan from './src/screen/DetailPemesanan';
+import Pembatalan from './src/screen/Pembatalan';
 
 const Core = createBottomTabNavigator();
 function App() {
@@ -48,10 +49,10 @@ function App() {
           }}  
         />
         <Core.Screen 
-          name='Detail Pemesanan' 
-          component={DetailPemesanan}
+          name='Pembatalan' 
+          component={Pembatalan}
           options={{
-            tabBarLabel: 'Detail Pemesanan',
+            tabBarLabel: 'Pembatalan',
             headerShown : true,
             headerTitleAlign : 'center',
             headerTitleStyle : {
@@ -60,7 +61,7 @@ function App() {
             headerStyle : {
               backgroundColor : '#024D88',
             },
-            tabBarIcon: ({color, size}) => (<MaterialCommuityIcons name="book" size={size} color={color} />)
+            tabBarIcon: ({color, size}) => (<MaterialCommuityIcons name="book-remove" size={size} color={color} />)
           }}  
         />
       </Core.Navigator>
