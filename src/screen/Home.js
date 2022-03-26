@@ -12,7 +12,9 @@ import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 function Home() {
-  const [selectedCity, setSelectedCity] = useState();
+  const [selectedHarbourDest, setSelectedHarbourDest] = useState('');
+  const [selectedHarbourCur, setSelectedHarbourCur] = useState('');
+  const [selectedService, setSelectedService] = useState('');
   const [hour, setHour] = useState(new Date());
   const [date, setDate] = useState(new Date());
   const showHourpicker = () => {
@@ -57,8 +59,8 @@ function Home() {
           <MaterialCommunityIcons name="sail-boat" size={50} color="black" />
           <View style={style.inputContainer}>
             <Picker padding={5}
-              selectedValue={selectedCity}
-              onValueChange={(itemValue) => setSelectedCity(itemValue)}
+              selectedValue={selectedHarbourCur}
+              onValueChange={(itemValue) => setSelectedHarbourCur(itemValue)}
               >
               <Picker.Item label='Pilih Pelabuhan Awal' value=""/>
               <Picker.Item label="Bandung" value="bdg" />
@@ -75,8 +77,8 @@ function Home() {
           <MaterialCommunityIcons name='sail-boat' size={50} color='black'/>
           <View style={style.inputContainer}>
             <Picker padding={5}
-              selectedValue={selectedCity}
-              onValueChange={(itemValue) => setSelectedCity(itemValue)}
+              selectedValue={selectedHarbourDest}
+              onValueChange={(itemValue) => setSelectedHarbourDest(itemValue)}
               >
               <Picker.Item label='Pilih Tujuan' value=""/>
               <Picker.Item label="Bandung" value="bdg" />
@@ -93,8 +95,8 @@ function Home() {
         <MaterialCommunityIcons name='seat-passenger' size={50} color='black'/>
           <View style={style.inputContainer}>
             <Picker padding={5}
-              selectedValue={selectedCity}
-              onValueChange={(itemValue) => setSelectedCity(itemValue)}
+              selectedValue={selectedService}
+              onValueChange={(itemValue) => setSelectedService(itemValue)}
               >
               <Picker.Item label='Pilih Layanan' value=""/>
               <Picker.Item label="Bandung" value="bdg" />

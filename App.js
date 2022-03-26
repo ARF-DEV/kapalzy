@@ -7,6 +7,8 @@ import MaterialCommuityIcons from 'react-native-vector-icons/MaterialCommunityIc
 
 import Home from './src/screen/Home';
 import Transaction from './src/screen/Transaction';
+import DaftarPesanan from './src/screen/DaftarPesanan';
+import DetailPemesanan from './src/screen/DetailPemesanan';
 
 const Core = createBottomTabNavigator();
 function App() {
@@ -22,11 +24,43 @@ function App() {
           }} 
         />
         <Core.Screen 
-          name='Transaction' 
+          name='Transaksi' 
           component={Transaction}
           options={{
-            tabBarLabel: 'Transaction',
+            tabBarLabel: 'Transaksi',
             tabBarIcon: ({color, size}) => (<MaterialCommuityIcons name="cash" size={size} color={color} />)
+          }}  
+        />
+        <Core.Screen 
+          name='Daftar Pesanan' 
+          component={DaftarPesanan}
+          options={{
+            tabBarLabel: 'Daftar Pesanan',
+            headerShown : true,
+            headerTitleAlign : 'center',
+            headerTitleStyle : {
+              color: 'white'
+            },
+            headerStyle : {
+              backgroundColor : '#024D88',
+            },
+            tabBarIcon: ({color, size}) => (<MaterialCommuityIcons name="book" size={size} color={color} />)
+          }}  
+        />
+        <Core.Screen 
+          name='Detail Pemesanan' 
+          component={DetailPemesanan}
+          options={{
+            tabBarLabel: 'Detail Pemesanan',
+            headerShown : true,
+            headerTitleAlign : 'center',
+            headerTitleStyle : {
+              color: 'white'
+            },
+            headerStyle : {
+              backgroundColor : '#024D88',
+            },
+            tabBarIcon: ({color, size}) => (<MaterialCommuityIcons name="book" size={size} color={color} />)
           }}  
         />
       </Core.Navigator>
