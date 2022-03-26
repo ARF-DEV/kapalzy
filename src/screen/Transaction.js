@@ -12,7 +12,7 @@ function Transaction() {
         <Text>Kapalz</Text>
         <Text>Kuota tersedia (10000)</Text>
         <Text>Rincian Tiket</Text>
-        <View>
+        <View style={style.userCountType}>
              <View>
              <Text>Bakauheni</Text>
              <Text>Merak</Text>
