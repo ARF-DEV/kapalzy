@@ -8,7 +8,8 @@ import {
 import { TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-function Transaction() {
+function Transaction({route, nav}) {
+  const data = route.params;
   return (
     <SafeAreaView style={style.screenContainer}>
       <View style={style.viewContainer}>
@@ -37,7 +38,14 @@ function Transaction() {
           <Text style={[style.textStyle, {fontSize : 20, marginHorizontal : 0}]}>Rp 65.000</Text>
         </View>
         <View style={{display : 'flex', flexDirection: 'row', alignItems : 'center', justifyContent : 'space-between'}}>
-            <TouchableOpacity style={[style.buttonStyle, {backgroundColor: 'white'}]}>
+            <TouchableOpacity 
+            onPress={() => {navigation.navigate('Core', {
+              screen : 'Daftar Pesanan',
+              params : {
+                ...data
+              }
+            })}}
+            style={[style.buttonStyle, {backgroundColor: 'white'}]}>
               <Text style={{fontWeight:'bold', color:'#00579C', fontSize:25, marginHorizontal : 10, marginVertical : 5}}>Kembali</Text>
             </TouchableOpacity>
             <TouchableOpacity style={style.buttonStyle}>

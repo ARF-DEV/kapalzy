@@ -8,8 +8,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-function Home() {
-
+function Home( {route, navigation} ) {
+     const [nama, setNama] = useState('');
+     const [identitas, setIdentitas] = useState('');
+     const [umur, setUmur] = useState('');
+     const data = route.params;
+     console.log(data)
   return (
     <SafeAreaView style={style.screenContainer}>
       <View style={style.viewContainer}>
@@ -36,17 +40,28 @@ function Home() {
         <Text style={{marginLeft:20, marginVertical:10, color:'black', fontWeight:'bold'}}>Data Pemesan</Text>
         <View>
                <Text style={{marginLeft:20, color:'black'}}>Nama Lengkap</Text>
-               <TextInput style={style.textInputStyle} placeholder="Nama Lengkap" placeholderTextColor={'#9D9D9D'} />
+               <TextInput onChangeText={(value) => {setNama(value)}} style={style.textInputStyle} placeholder="Nama Lengkap" placeholderTextColor={'#9D9D9D'} />
         </View>
         <View>
                <Text style={{marginLeft:20, color:'black'}}>Identitas</Text>
-               <TextInput style={style.textInputStyle} placeholder="Identitas" placeholderTextColor={'#9D9D9D'} />
+               <TextInput onChangeText={(value) => {setIdentitas(value)}} style={style.textInputStyle} placeholder="Identitas" placeholderTextColor={'#9D9D9D'} />
         </View>
         <View>
                <Text style={{marginLeft:20, color:'black'}}>Umur</Text>
-               <TextInput style={style.textInputStyle} placeholder="Umur" placeholderTextColor={'#9D9D9D'} />
+               <TextInput onChangeText={(value) => {setUmur(value)}} style={style.textInputStyle} placeholder="Umur" placeholderTextColor={'#9D9D9D'} />
         </View>
-          <TouchableOpacity>
+          <TouchableOpacity
+               onPress={() => {navigation.navigate('Core',
+               {
+                    screen : 'Daftar Pesanan',
+                    params : {
+                         namaPengguna : nama,
+                         Identitas : identitas,
+                         Umur : umur,
+                         ...data
+                    },
+               })}}
+          >
                <Text style={{
                     backgroundColor:'black', 
                     borderRadius : 5,

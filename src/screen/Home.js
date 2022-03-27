@@ -11,7 +11,7 @@ import {Picker} from '@react-native-picker/picker';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-function Home() {
+function Home( {route, navigation} ) {
   const [selectedHarbourDest, setSelectedHarbourDest] = useState('');
   const [selectedHarbourCur, setSelectedHarbourCur] = useState('');
   const [selectedService, setSelectedService] = useState('');
@@ -60,7 +60,7 @@ function Home() {
           <View style={style.inputContainer}>
             <Picker padding={5}
               selectedValue={selectedHarbourCur}
-              onValueChange={(itemValue) => setSelectedHarbourCur(itemValue)}
+              onValueChange={(selectedHarbourCur) => setSelectedHarbourCur(selectedHarbourCur)}
               >
               <Picker.Item label='Pilih Pelabuhan Awal' value=""/>
               <Picker.Item label="Bandung" value="bdg" />
@@ -78,7 +78,7 @@ function Home() {
           <View style={style.inputContainer}>
             <Picker padding={5}
               selectedValue={selectedHarbourDest}
-              onValueChange={(itemValue) => setSelectedHarbourDest(itemValue)}
+              onValueChange={(selectedHarbourDest) => setSelectedHarbourDest(selectedHarbourDest)}
               >
               <Picker.Item label='Pilih Tujuan' value=""/>
               <Picker.Item label="Bandung" value="bdg" />
@@ -96,14 +96,11 @@ function Home() {
           <View style={style.inputContainer}>
             <Picker padding={5}
               selectedValue={selectedService}
-              onValueChange={(itemValue) => setSelectedService(itemValue)}
+              onValueChange={(selectedService) => setSelectedService(selectedService)}
               >
               <Picker.Item label='Pilih Layanan' value=""/>
-              <Picker.Item label="Bandung" value="bdg" />
-              <Picker.Item label="Palembang" value="plm" />
-              <Picker.Item label="Jakarta" value="jkr" />
-              <Picker.Item label="Lampung" value="lmp" />
-              <Picker.Item label="Bogor" value="bgr" />
+              <Picker.Item label="Epic" value="bdg" />
+              <Picker.Item label="Ekomomi" value="plm" />
             </Picker>
           </View>
 
@@ -130,7 +127,17 @@ function Home() {
           <Text>1</Text>
         </View>
         <View style = {style.buttonContainer}>
-          <Button style={style.buttonStyle} title="Buat Tiket" />
+          <Button onPress={() => {navigation.navigate('Sub', {
+            screen : 'Detail Pemesanan',
+            params : {
+              selectedHarbourCur,
+              selectedHarbourDest,
+              selectedService,
+              hour,
+              date
+            }
+          })}} 
+          style={style.buttonStyle} title="Buat Tiket" />
         </View>
       </View>
     </SafeAreaView>

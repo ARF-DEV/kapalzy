@@ -8,7 +8,10 @@ import {
 import { TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-function Transaction() {
+function Transaction( {route, navigation} ) {
+  const data = route.params;
+  console.log(data);
+
   return (
     <SafeAreaView style={style.screenContainer}>
       <View style={style.viewContainer}>
@@ -17,7 +20,7 @@ function Transaction() {
             <MaterialCommunityIcons name="arrow-right-thin" size={50} color="black" />
             <Text style={{color: 'black', fontSize : 20, marginHorizontal : 20}}>Merak</Text>
           </View>
-          <Text style={[style.textStyle, {fontWeight : 'bold'}]}>Jadwal Masu Pelabuhan</Text>
+          <Text style={[style.textStyle, {fontWeight : 'bold'}]}>Jadwal Masuk Pelabuhan</Text>
           <Text style={style.textStyle}>Kamis, 17 Maret 2022</Text>
           <Text style={style.textStyle}>15:30 WIB</Text>
           <Text style={[style.textStyle, {fontWeight : 'bold'}]}>Layanan</Text>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, SafeAreaView, Text, StyleSheet, Image} from 'react-native'
 
-function Pembatalan() {
+function Pembatalan( {route, navigation} ) {
      return (
           <SafeAreaView>
                <View style={style.viewContainer}>

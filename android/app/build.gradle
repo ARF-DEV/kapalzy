@@ -130,7 +130,6 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     defaultConfig {
         applicationId "com.kapalzy"
         minSdkVersion rootProject.ext.minSdkVersion
